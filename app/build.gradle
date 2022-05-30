@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    //id 'kotlin-android-extensions' < deprecated
 }
 
 android {
@@ -29,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -40,4 +45,14 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //androidx 에서 onActivityResult() 사용하기
+    def dependency_version = "1.3.1"
+    implementation "androidx.activity:activity-ktx:$dependency_version"
+    implementation "androidx.fragment:fragment-ktx:$dependency_version"
+
+    //머테리얼 디자인
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'com.google.android.material:material:1.6.0@aar'
+
 }
